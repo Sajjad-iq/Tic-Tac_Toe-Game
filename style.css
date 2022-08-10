@@ -1,18 +1,18 @@
 body {
     font-family: "Arial", sans-serif;
     font-size: 16px;
-    color: white
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 section {
     text-align: center;
 }
 
-.game--title {
-    font-size: 100px;
-    color: #d7a62f;
-    margin: 10px auto;
-}
 
 .game--container {
     display: grid;
@@ -35,18 +35,18 @@ section {
     color: red;
 }
 
-.game--status {
-    font-size: 50px;
-    color: #d7a62f;
-    margin: 20px auto;
+.display {
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
-.game--restart {
-    background-color: #f7e4ac;
-    width: 200px;
-    height: 50px;
-    font-size: 25px;
-    color: #5586e2;
-    box-shadow: 2px 2px 2px 2px #d86c23;
-    border: 2px solid #d86c23;
+.playerX {
+    color: #09C372;
+}
+
+.playerO {
+    color: #498AFB;
 }
