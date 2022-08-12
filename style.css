@@ -7,6 +7,8 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: #011536;
+
 }
 
 section {
@@ -49,4 +51,21 @@ section {
 
 .playerO {
     color: #498AFB;
+}
+
+#reset {
+    background-color: #498AFB;
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.hide {
+    display: none;
 }

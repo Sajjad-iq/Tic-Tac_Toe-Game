@@ -29,15 +29,16 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     const userAction = (tile, index) => {
-        if (isValidAction(tile) && isGameActive) {
-            tile.innerText = currentPlayer;
-            tile.classList.add(`player${currentPlayer}`);
+        if (isValidAction(tile) && isGameActive) { // => true
+            tile.innerText = currentPlayer; // => X
+            tile.classList.add(`player${currentPlayer}`); // => X
             updateBoard(index);
             handleResultValidation();
             changePlayer();
         }
     }
 
+    // check if you click on tile you allready clicked
     const isValidAction = (tile) => {
         if (tile.innerText === 'X' || tile.innerText === 'O') {
             return false;
@@ -47,37 +48,39 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateBoard = (index) => {
-        board[index] = currentPlayer;
+        board[index] = currentPlayer; // bord = ["O","X","O"]
     }
 
+    // check if you win or lose
     function handleResultValidation() {
         let roundWon = false;
         for (let i = 0; i <= 7; i++) {
-            const winCondition = winningConditions[i];
-            const a = board[winCondition[0]];
-            const b = board[winCondition[1]];
-            const c = board[winCondition[2]];
-            console.log(winCondition)
-            console.log(a, b, c)
+            // this will check what's inside the bord by index that's come from winConditon
+            const winCondition = winningConditions[i]; // = [6,7,8]
+            const a = board[winCondition[0]]; // = 6
+            const b = board[winCondition[1]]; // = 7
+            const c = board[winCondition[2]]; // = 8
             if (a === '' || b === '' || c === '') {
                 continue;
             }
-            if (a === b && b === c) {
+            if (a === b && b === c) { // a = "X" , b = "X" , c = "X" = X win
                 roundWon = true;
                 break;
             }
         }
 
-        if (roundWon) {
+
+        if (roundWon) { // if true
             announce(currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
             isGameActive = false;
             return;
         }
 
-        if (!board.includes(''))
+        if (!board.includes('')) // if board not empty
             announce(TIE);
 
     }
+
 
     const changePlayer = () => {
         playerDisplay.classList.remove(`player${currentPlayer}`);
@@ -86,7 +89,7 @@ window.addEventListener('DOMContentLoaded', () => {
         playerDisplay.classList.add(`player${currentPlayer}`);
     }
 
-
+    // retern the win player to the screen
     const announce = (type) => {
         switch (type) {
             case PLAYERO_WON:
